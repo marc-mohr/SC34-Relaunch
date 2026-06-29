@@ -1,0 +1,11 @@
+# robots.txt — SC34 Website Vorschau
+# Diese Datei verhindert, dass Suchmaschinen die Seite indexieren.
+# Sobald die Seite live geht, diese Datei entweder löschen
+# oder den Inhalt durch die folgende Version ersetzen:
+#
+# User-agent: *
+# Allow: /
+# Sitemap: https://www.sc34.de/sitemap.xml
+
+User-agent: *
+Disallow: /
