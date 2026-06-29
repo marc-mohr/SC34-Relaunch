@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markranstädter Straße, Leipzig Plagwitz — SC34 Landschaftsarchitektur</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="projekt.css">
+</head>
+<body>
+
+<!-- =========================================================
+     AUFBAU DIESER SEITE:
+     1. <header>         — identisch zur index.html
+     2. <main>
+        - .projekt-hero         Vollbreite-Bild + Projekttitel
+        - .projekt-meta         Eckdaten-Zeile (Ort, Status, Jahr...)
+        - .projekt-content      Beschreibungstext + Bildergalerie
+        - .projekt-next         Nächstes Projekt (Kachel)
+     3. <footer>         — identisch zur index.html
+
+     projekt.css enthält NUR die Stile für diese Seite.
+     style.css (Startseite) liefert Header, Footer, Buttons,
+     Variablen und Reset — wird hier wiederverwendet.
+     ========================================================= -->
+
+<!-- HEADER: 1:1 identisch zur index.html -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Logo</a>
+    <nav class="main-nav">
+      <a href="index.html">Startseite</a>
+      <a href="#">Projekte</a>
+      <a href="#">Team</a>
+      <a href="#">Kontakt</a>
+    </nav>
+    <a href="#" class="btn btn-dark">Kontakt</a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- PROJEKT-HERO
+       Großes Vollbreite-Bild als erster Eindruck des Projekts.
+       Der Projekttitel liegt als Overlay über dem Bild (unten links),
+       damit er direkt mit dem Bild verbunden wirkt. -->
+  <section class="projekt-hero">
+    <div class="projekt-hero-image img-placeholder">
+      <span>Hauptbild Projekt</span>
+    </div>
+    <div class="container">
+      <div class="projekt-hero-text">
+        <!-- Breadcrumb: zeigt dem Nutzer (und Google), wo er ist -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <a href="#">Projekte</a>
+          <span>/</span>
+          <span>Markranstädter Straße</span>
+        </nav>
+        <!-- H1: Projektname — wichtigstes SEO-Element der Seite -->
+        <h1>Markranstädter Straße, Leipzig Plagwitz</h1>
+        <div class="tag-row">
+          <span class="tag">Freiraumplanung</span>
+          <span class="tag">Stadtentwicklung</span>
+          <span class="tag">Entwurf</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKT-META
+       Schmale Zeile mit Eckdaten auf einen Blick.
+       Jede .meta-item ist ein Schlüssel-Wert-Paar.
+       Diese Daten helfen auch bei SEO (strukturierte Infos). -->
+  <section class="projekt-meta-section">
+    <div class="container">
+      <div class="projekt-meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Standort</span>
+          <span class="meta-value">Leipzig Plagwitz</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Leistung</span>
+          <span class="meta-value">Freiraumplanung, Entwurf</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">Eingefroren (Genehmigungsplanung)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Jahr</span>
+          <span class="meta-value">2024</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Auftraggeber</span>
+          <span class="meta-value">Privater Investor</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKT-CONTENT
+       Zweispaltiges Layout: Text links, Galerie rechts.
+       Auf Mobile stapeln sich beide Spalten untereinander. -->
+  <section class="projekt-content">
+    <div class="container projekt-content-grid">
+
+      <!-- Linke Spalte: Projektbeschreibung -->
+      <div class="projekt-text">
+        <span class="eyebrow">Projektbeschreibung</span>
+        <h2>Vom Entwurf bis zur Genehmigungsplanung</h2>
+        <p>Bedingt durch die Krise in der Bauwirtschaft wurde dieses Projekt in einer der angesagtesten städtischen Entwicklungsgebiete in Leipzig nach der Genehmigungsplanung „eingefroren".</p>
+        <p>SC34 begleitete das Projekt von den ersten Entwurfsskizzen bis zur vollständigen Genehmigungsplanung – ein Prozess, der intensive Abstimmung mit Behörden, Investoren und Planungsbeteiligten erforderte.</p>
+
+        <!-- Leistungsübersicht als strukturierte Liste -->
+        <div class="projekt-leistungen">
+          <h3>Erbrachte Leistungen</h3>
+          <ul class="leistungen-liste">
+            <li>Freiraumplanerischer Entwurf</li>
+            <li>Genehmigungsplanung</li>
+            <li>Abstimmung mit Behörden</li>
+            <li>Bepflanzungskonzept</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Rechte Spalte: Bildergalerie
+           .galerie-grid zeigt Bilder in einem responsiven Raster.
+           Das erste Bild ist groß (volle Breite der Spalte),
+           die weiteren Bilder kommen in 2 Spalten darunter. -->
+      <div class="projekt-galerie">
+        <div class="galerie-grid">
+          <!-- Großes Hauptbild oben -->
+          <div class="img-placeholder galerie-bild galerie-gross"><span>Bild 1</span></div>
+          <!-- Kleinere Bilder im 2er-Raster darunter -->
+          <div class="img-placeholder galerie-bild"><span>Bild 2</span></div>
+          <div class="img-placeholder galerie-bild"><span>Bild 3</span></div>
+          <div class="img-placeholder galerie-bild"><span>Bild 4 (CAD)</span></div>
+          <div class="img-placeholder galerie-bild"><span>Bild 5</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NÄCHSTES PROJEKT
+       Statt einem einfachen Textlink eine vollwertige Kachel,
+       die neugierig auf das nächste Projekt macht.
+       Funktioniert auch als interner Link für SEO. -->
+  <section class="projekt-next">
+    <div class="container">
+      <span class="eyebrow">Nächstes Projekt</span>
+      <a href="#" class="next-card">
+        <div class="next-card-inner">
+          <div class="img-placeholder next-bild"><span>Vorschaubild</span></div>
+          <div class="next-text">
+            <span class="next-label">Weiter zu</span>
+            <h3>Quartiersentwicklung Helleböhn, Kassel</h3>
+            <p>Ein urbaner Freiraum für Begegnung und Erholung.</p>
+            <span class="link-arrow">Zum Projekt →</span>
+          </div>
+        </div>
+      </a>
+      <!-- Zurück zur Projektübersicht -->
+      <div class="back-link">
+        <a href="#" class="btn btn-outline">← Alle Projekte ansehen</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER: 1:1 identisch zur index.html -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Logo</div>
+      <p>Adresse</p>
+      <p>Trottstraße 10<br>34119 Kassel, Deutschland</p>
+      <p>Kontakt</p>
+      <p>info@sc34.de</p>
+    </div>
+    <div class="footer-col">
+      <h4>Startseite</h4>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="#">Projekte</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Standorte:</h4>
+      <ul>
+        <li><a href="#">Kassel</a></li>
+        <li><a href="#">Berlin</a></li>
+        <li><a href="#">Leipzig</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2025 SC34 Landschaftsarchitektur. Alle Rechte vorbehalten.</span>
+    <span class="footer-legal">
+      <a href="#">Datenschutz</a>
+      <a href="#">Impressum</a>
+    </span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

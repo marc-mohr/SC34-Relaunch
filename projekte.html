@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projekte — SC34 Landschaftsarchitektur</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="projekte.css">
+</head>
+<body>
+
+<!-- =========================================================
+     AUFBAU DIESER SEITE:
+     1. <header>            — identisch zur index.html
+     2. <main>
+        - .projekte-hero    Seitentitel + Einleitung
+        - .projekte-filter  Filterleiste (Alle / Kategorien)
+        - .projekte-grid    Projektgitter (2 Spalten)
+     3. <footer>            — identisch zur index.html
+
+     projekte.css enthält NUR die Stile für diese Seite.
+     style.css liefert Header, Footer, Buttons, Variablen etc.
+     Das Filtern der Kacheln übernimmt ein kleines JavaScript
+     am Ende dieser Datei (inline, da es nur diese Seite betrifft).
+     ========================================================= -->
+
+<!-- HEADER: identisch zur index.html -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Logo</a>
+    <nav class="main-nav">
+      <a href="index.html">Startseite</a>
+      <a href="projekte.html" class="active">Projekte</a>
+      <a href="#">Team</a>
+      <a href="#">Kontakt</a>
+    </nav>
+    <a href="#" class="btn btn-dark">Kontakt</a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- SEITEN-HERO
+       Bewusst schmal gehalten — kein großes Bild.
+       Gibt der Seite einen klaren Titel ohne Platz zu verschwenden. -->
+  <section class="projekte-hero">
+    <div class="container">
+      <!-- Breadcrumb für SEO und Orientierung -->
+      <nav class="breadcrumb-light" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Projekte</span>
+      </nav>
+      <h1>Unsere Projekte</h1>
+      <p>Von der ersten Skizze bis zur Fertigstellung — ein Überblick über realisierte Projekte, laufende Planungen, Wettbewerbe und Entwürfe.</p>
+    </div>
+  </section>
+
+  <!-- FILTERLEISTE
+       Jeder Button hat ein data-filter-Attribut.
+       Das JavaScript unten liest diesen Wert aus und
+       blendet alle Kacheln ein/aus, die nicht passen.
+       data-filter="alle" zeigt immer alles. -->
+  <section class="projekte-filter-section">
+    <div class="container">
+      <div class="filter-leiste" role="group" aria-label="Projekte filtern">
+        <button class="filter-btn active" data-filter="alle">Alle</button>
+        <button class="filter-btn" data-filter="realisiert">Realisiert</button>
+        <button class="filter-btn" data-filter="planung">In Planung</button>
+        <button class="filter-btn" data-filter="entwurf">Entwurf</button>
+        <button class="filter-btn" data-filter="wettbewerb">Wettbewerbe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKTGITTER
+       Jede .projekt-kachel hat ein data-kategorie-Attribut.
+       Dieser Wert muss EXAKT mit dem data-filter der Buttons
+       übereinstimmen, damit das Filtern funktioniert.
+
+       Beispiel: data-kategorie="realisiert" wird angezeigt,
+       wenn der Button data-filter="realisiert" aktiv ist. -->
+  <section class="projekte-liste">
+    <div class="container">
+
+      <!-- Zähler: zeigt an wie viele Projekte gerade sichtbar sind -->
+      <div class="projekte-zaehler">
+        <span id="projekt-count">13</span> Projekte
+      </div>
+
+      <div class="projekte-grid" id="projekte-grid">
+
+        <!-- KACHEL 1 -->
+        <article class="projekt-kachel" data-kategorie="realisiert">
+          <a href="projekt.html" class="kachel-link">
+            <div class="kachel-bild img-placeholder">
+              <span>Bild</span>
+              <!-- Kategorie-Badge als Overlay oben links -->
+              <span class="kachel-badge">Realisiert</span>
+            </div>
+            <div class="kachel-inhalt">
+              <div class="kachel-ort">Kassel</div>
+              <h2 class="kachel-titel">Quartiersentwicklung Helleböhn, Kassel</h2>
+              <p class="kachel-beschreibung">Ein urbaner Freiraum für Begegnung und Erholung im neuen Stadtquartier.</p>
+              <div class="tag-row">
+                <span class="tag">Stadtentwicklung</span>
+                <span class="tag">Nachhaltigkeit</span>
+              </div>
+              <span class="link-arrow">Zum Projekt →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- KACHEL 2 -->
+        <article class="projekt-kachel" data-kategorie="wettbewerb">
+          <a href="projekt.html" class="kachel-link">
+            <div class="kachel-bild img-placeholder">
+              <span>Bild</span>
+              <span class="kachel-badge">Wettbewerb</span>
+            </div>
+            <div class="kachel-inhalt">
+              <div class="kachel-ort">Darmstadt</div>
+              <h2 class="kachel-titel">"Ludwigshöh", Darmstadt</h2>
+              <p class="kachel-beschreibung">Nachbarschaften neu gedacht und geplant — Wettbewerbsbeitrag für ein innovatives Wohnquartier.</p>
+              <div class="tag-row">
+                <span class="tag">Freiraumplanung</span>
+                <span class="tag">Wettbewerb</span>
+              </div>
+              <span class="link-arrow">Zum Projekt →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- KACHEL 3 -->
+        <article class="projekt-kachel" data-kategorie="realisiert">
+          <a href="projekt.html" class="kachel-link">
+            <div class="kachel-bild img-placeholder">
+              <span>Bild</span>
+              <span class="kachel-badge">Realisiert</span>
+            </div>
+            <div class="kachel-inhalt">
+              <div class="kachel-ort">Cottbus</div>
+              <h2 class="kachel-titel">Curt-Möbius-Str. 23–28/41–46, Cottbus</h2>
+              <p class="kachel-beschreibung">Aufwertung des Wohnumfeldes mit Spielplatz, Fahrradeinhausungen und Staudenpflanzungen.</p>
+              <div class="tag-row">
+                <span class="tag">Naturschutz</span>
+                <span class="tag">Planung</span>
+              </div>
+              <span class="link-arrow">Zum Projekt →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- KACHEL 4 -->
+        <article class="projekt-kachel" data-kategorie="entwurf">
+          <a href="projekt.html" class="kachel-link">
+            <div class="kachel-bild img-placeholder">
+              <span>Bild</span>
+              <span class="kachel-badge">Entwurf</span>
+            </div>
+            <div class="kachel-inhalt">
+              <div class="kachel-ort">Leipzig</div>
+              <h2 class="kachel-titel">Markranstädter Straße, Leipzig Plagwitz</h2>
+              <p class="kachel-beschreibung">Freiraumplanerischer Entwurf für ein Wohnquartier in einem der angesagtesten Entwicklungsgebiete Leipzigs.</p>
+              <div class="tag-row">
+                <span class="tag">Freiraumplanung</span>
+                <span class="tag">Entwurf</span>
+              </div>
+              <span class="link-arrow">Zum Projekt →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- KACHEL 5 -->
+        <article class="projekt-kachel" data-kategorie="planung">
+          <a href="projekt.html" class="kachel-link">
+            <div class="kachel-bild img-placeholder">
+              <span>Bild</span>
+              <span class="kachel-badge">In Planung</span>
+            </div>
+            <div class="kachel-inhalt">
+              <div class="kachel-ort">Berlin</div>
+              <h2 class="kachel-titel">Platzhalter Projekt Berlin</h2>
+              <p class="kachel-beschreibung">Kurze Projektbeschreibung — ein Satz der das Projekt zusammenfasst.</p>
+              <div class="tag-row">
+                <span class="tag">Stadtentwicklung</span>
+              </div>
+              <span class="link-arrow">Zum Projekt →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- KACHEL 6 -->
+        <article class="projekt-kachel" data-kategorie="wettbewerb">
+          <a href="projekt.html" class="kachel-link">
+            <div class="kachel-bild img-placeholder">
+              <span>Bild</span>
+              <span class="kachel-badge">Wettbewerb</span>
+            </div>
+            <div class="kachel-inhalt">
+              <div class="kachel-ort">Kassel</div>
+              <h2 class="kachel-titel">Platzhalter Wettbewerb Kassel</h2>
+              <p class="kachel-beschreibung">Kurze Projektbeschreibung — ein Satz der das Projekt zusammenfasst.</p>
+              <div class="tag-row">
+                <span class="tag">Wettbewerb</span>
+                <span class="tag">Nachhaltigkeit</span>
+              </div>
+              <span class="link-arrow">Zum Projekt →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- KACHEL 7 -->
+        <article class="projekt-kachel" data-kategorie="realisiert">
+          <a href="projekt.html" class="kachel-link">
+            <div class="kachel-bild img-placeholder">
+              <span>Bild</span>
+              <span class="kachel-badge">Realisiert</span>
+            </div>
+            <div class="kachel-inhalt">
+              <div class="kachel-ort">Leipzig</div>
+              <h2 class="kachel-titel">Platzhalter Projekt Leipzig</h2>
+              <p class="kachel-beschreibung">Kurze Projektbeschreibung — ein Satz der das Projekt zusammenfasst.</p>
+              <div class="tag-row">
+                <span class="tag">Freiraumplanung</span>
+              </div>
+              <span class="link-arrow">Zum Projekt →</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- KACHEL 8 -->
+        <article class="projekt-kachel" data-kategorie="entwurf">
+          <a href="projekt.html" class="kachel-link">
+            <div class="kachel-bild img-placeholder">
+              <span>Bild</span>
+              <span class="kachel-badge">Entwurf</span>
+            </div>
+            <div class="kachel-inhalt">
+              <div class="kachel-ort">Berlin</div>
+              <h2 class="kachel-titel">Platzhalter Entwurf Berlin</h2>
+              <p class="kachel-beschreibung">Kurze Projektbeschreibung — ein Satz der das Projekt zusammenfasst.</p>
+              <div class="tag-row">
+                <span class="tag">Entwurf</span>
+                <span class="tag">Stadtentwicklung</span>
+              </div>
+              <span class="link-arrow">Zum Projekt →</span>
+            </div>
+          </a>
+        </article>
+
+      </div><!-- /.projekte-grid -->
+
+      <!-- Wird eingeblendet wenn ein Filter keine Ergebnisse liefert -->
+      <div class="keine-ergebnisse" id="keine-ergebnisse" hidden>
+        <p>Keine Projekte in dieser Kategorie gefunden.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER: identisch zur index.html -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Logo</div>
+      <p>Adresse</p>
+      <p>Trottstraße 10<br>34119 Kassel, Deutschland</p>
+      <p>Kontakt</p>
+      <p>info@sc34.de</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="projekte.html">Projekte</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Standorte:</h4>
+      <ul>
+        <li><a href="#">Kassel</a></li>
+        <li><a href="#">Berlin</a></li>
+        <li><a href="#">Leipzig</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2025 SC34 Landschaftsarchitektur. Alle Rechte vorbehalten.</span>
+    <span class="footer-legal">
+      <a href="#">Datenschutz</a>
+      <a href="#">Impressum</a>
+    </span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+<!-- FILTER-JAVASCRIPT
+     Nur für diese Seite zuständig — steuert die Filterleiste.
+     Inline hier statt in script.js, weil script.js nur das
+     Hamburger-Menü steuert und das sauber getrennt bleiben soll. -->
+<script>
+  (function () {
+
+    // Alle Filter-Buttons und alle Projekt-Kacheln holen
+    var buttons = document.querySelectorAll('.filter-btn');
+    var kacheln = document.querySelectorAll('.projekt-kachel');
+    var zaehler = document.getElementById('projekt-count');
+    var keineErgebnisse = document.getElementById('keine-ergebnisse');
+
+    // Klick auf einen Filter-Button
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+
+        // 1. Aktiven Zustand vom alten Button entfernen,
+        //    neuen Button als aktiv markieren
+        buttons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        // 2. Welcher Filter ist gewählt?
+        var filter = btn.getAttribute('data-filter');
+
+        // 3. Jede Kachel prüfen: passt sie zum Filter?
+        var sichtbar = 0;
+        kacheln.forEach(function (kachel) {
+          var kategorie = kachel.getAttribute('data-kategorie');
+
+          // "alle" zeigt jede Kachel, sonst nur passende
+          if (filter === 'alle' || kategorie === filter) {
+            kachel.hidden = false;
+            sichtbar++;
+          } else {
+            kachel.hidden = true;
+          }
+        });
+
+        // 4. Zähler aktualisieren
+        zaehler.textContent = sichtbar;
+
+        // 5. "Keine Ergebnisse"-Meldung ein-/ausblenden
+        keineErgebnisse.hidden = sichtbar > 0;
+      });
+    });
+
+  })();
+</script>
+
+</body>
+</html>

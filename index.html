@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC34 Landschaftsarchitektur</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =========================================================
+     AUFBAU DIESER SEITE (Reihenfolge der Sektionen):
+     1. <header>  — Logo, Navigation, Hamburger-Menü (mobil)
+     2. <main>    — enthält alle Inhalts-Sektionen:
+        - .hero            Startbild + Überschrift
+        - .services        4 Leistungs-Kacheln
+        - .about           Über-uns-Text
+        - .projects        3 Projekt-Karten
+        - .cad             Bildraster "Entwürfe & Konzepte"
+        - .stats           Zahlen/Kennzahlen
+        - .contact-cta     Kontakt-Aufruf
+     3. <footer>  — Adresse, Links, Copyright
+
+     Jede Sektion ist in der style.css unter dem gleich-
+     lautenden Kommentar zu finden, z.B. "/* --- Hero --- */"
+     ========================================================= -->
+
+<!-- HEADER: Logo links, Navigation Mitte/rechts, Hamburger
+     nur auf Mobile sichtbar (siehe style.css @media-Bereich) -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#" class="logo">Logo</a>
+    <nav class="main-nav">
+      <a href="#"class="active">Startseite</a>
+      <a href="#">Projekte</a>
+      <a href="#">Team</a>
+      <a href="#">Kontakt</a>
+    </nav>
+    <a href="#" class="btn btn-dark">Kontakt</a>
+    <!-- aria-expanded wird per script.js auf true/false gesetzt,
+         damit Screenreader wissen, ob das Menü offen ist -->
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO: erstes großes Element, Text links + Bild rechts -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Landschaftsarchitektur vom Entwurf bis zur Ausführung.</h1>
+        <p>Wir planen und realisieren anspruchsvolle Freianlagen für die öffentliche Hand, Wohnungsbau und Investoren – bundesweit und verlässlich auch bei Großprojekten.</p>
+        <div class="btn-row">
+          <a href="#" class="btn btn-dark">Referenzen ansehen</a>
+          <a href="#" class="btn btn-outline">Kontakt</a>
+        </div>
+      </div>
+      <div class="img-placeholder hero-image"><span>Bild</span></div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN: 4 Kacheln im Grid, siehe .services-grid in style.css -->
+  <section class="services">
+    <div class="container">
+      <div class="section-intro">
+        <span class="eyebrow">Leistungen</span>
+        <h2>Was wir für Sie gestalten</h2>
+        <p>Unsere Philosophie: Architektur weitergedacht</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon-placeholder"></div>
+          <h3>Freiraumplanung</h3>
+          <p>Wir entwerfen Freiräume, die Menschen anzieht und Orte lebendig macht.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon-placeholder"></div>
+          <h3>Stadtentwicklung</h3>
+          <p>Nachhaltige Konzepte für urbane Räume, die Zukunft gestalten und Gemeinschaft fördern.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon-placeholder"></div>
+          <h3>Individueller Entwürfe</h3>
+          <p>Keine Schablonen. Jedes Projekt erhält eine maßgeschneiderte Identität.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon-placeholder"></div>
+          <h3>Gelebte Nachhaltigkeit</h3>
+          <p>Wir planen mit Blick auf Klimaresilienz, Biodiversität und langlebige Materialien.</p>
+        </div>
+      </div>
+
+      <div class="services-footer">
+        <a href="#" class="btn btn-outline">Mehr</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER UNS: zentrierter Textblock -->
+  <section class="about">
+    <div class="container">
+      <span class="eyebrow center">Über uns</span>
+      <h2 class="center">Wir schaffen Freiräume, die Bestand haben.</h2>
+      <p class="about-text">
+        Wir sind kein reines Zeichenbüro. Das Fundament unseres Erfolgs liegt in der Kombination aus akademischer Planungsstärke und handwerklichen Grundausbildungen.
+        <br><br>
+        Weil wir wissen, wie Materialien verarbeitet werden und wie Baustellen logistisch funktionieren, planen wir von vornherein fehlerfrei und praxisnah. Diese Bodenhaftung macht uns zu einem gefragten Partner für die bundesweite Betreuung von anspruchsvollen Großprojekten. Wir sprechen die Sprache der Planer und die Sprache der Gewerke vor Ort.
+      </p>
+      <div class="btn-row center">
+        <a href="#" class="btn btn-dark">Team kennenlernen</a>
+        <a href="#" class="btn btn-outline">Kontakt</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKTE: 3 Karten mit Bild, Titel, Tags, Link -->
+  <section class="projects">
+    <div class="container">
+      <div class="section-intro">
+        <span class="eyebrow">Projekte</span>
+        <h2>Ausgewählte Arbeiten</h2>
+        <p>Drei Projekte, die zeigen, wie wir arbeiten.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="img-placeholder project-image"><span>Bild</span></div>
+          <h3>Quartiersentwicklung Helleböhn, Kassel</h3>
+          <p>Ein urbaner Freiraum für Begegnung und Erholung.</p>
+          <div class="tag-row">
+            <span class="tag">Stadtentwicklung</span>
+            <span class="tag">Nachhaltigkeit</span>
+            <span class="tag">Projekt</span>
+          </div>
+          <a href="#" class="link-arrow">Zum Projekt →</a>
+        </article>
+
+        <article class="project-card">
+          <div class="img-placeholder project-image"><span>Bild</span></div>
+          <h3>"Ludwigshöh", Darmstadt</h3>
+          <p>Nachbarschaften neu gedacht und geplant.</p>
+          <div class="tag-row">
+            <span class="tag">Freiraumplanung</span>
+            <span class="tag">Wettbewerb</span>
+            <span class="tag">Projekt</span>
+          </div>
+          <a href="#" class="link-arrow">Zum Projekt →</a>
+        </article>
+
+        <article class="project-card">
+          <div class="img-placeholder project-image"><span>Bild</span></div>
+          <h3>Curt-Möbius-Str. 23-28/41-46, Cottbus</h3>
+          <p>Aufwertung des Wohnumfeldes mit Spielplatz, Fahrradeinhausungen und Staudenpflanzungen.</p>
+          <div class="tag-row">
+            <span class="tag">Naturschutz</span>
+            <span class="tag">Planung</span>
+            <span class="tag">Projekt</span>
+          </div>
+          <a href="#" class="link-arrow">Zum Projekt →</a>
+        </article>
+
+      </div>
+
+      <div class="services-footer">
+        <a href="#" class="btn btn-outline">Alle Projekte</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAD/ENTWÜRFE: 2x2 Bildraster, 2 große + 2 kleinere Plätze -->
+  <section class="cad">
+    <div class="container">
+      <div class="section-intro center">
+        <h2>Entwürfe und Konzepte</h2>
+        <p>CAD-Zeichnungen zeigen den Weg vom Gedanken zur Realität.</p>
+      </div>
+
+      <div class="cad-grid">
+        <div class="img-placeholder cad-image cad-large"><span>Bild</span></div>
+        <div class="img-placeholder cad-image"><span>Bild</span></div>
+        <div class="img-placeholder cad-image"><span>Bild</span></div>
+        <div class="img-placeholder cad-image cad-large"><span>Bild</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZAHLEN/KPI: Text links, 3 Kennzahlen-Boxen rechts -->
+  <section class="stats">
+    <div class="container stats-grid">
+      <div class="stats-text">
+        <h2>Zahlen, die für unsere Arbeit sprechen</h2>
+        <p>Mehr als 25 Jahre Erfahrung in Landschaftsarchitektur. Projekte in Deutschland und darüber hinaus. Partnerschaften mit Städten und Institutionen.</p>
+      </div>
+      <div class="stats-numbers">
+        <div class="stat-box">
+          <div class="stat-num">85+</div>
+          <div class="stat-label">Realisierte Projekte</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Standorte in Deutschland</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Nachhaltige Planung</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT-CTA: letzter Aufruf vor dem Footer -->
+  <section class="contact-cta">
+    <div class="container center">
+      <h2>Kontaktieren Sie uns</h2>
+      <p>Wir freuen uns auf Ihr Projekt und Ihre Ideen.</p>
+      <div class="btn-row center">
+        <a href="#" class="btn btn-dark">Kontakt</a>
+        <a href="#" class="btn btn-outline">Team</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Logo</div>
+      <p>Adresse</p>
+      <p>Trottstraße 10<br>34119 Kassel, Deutschland</p>
+      <p>Kontakt</p>
+      <p>info@sc34.de</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Startseite</h4>
+      <ul>
+        <li><a href="#">Projekte</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Standorte:</h4>
+      <ul>
+        <li><a href="#">Kassel</a></li>
+        <li><a href="#">Berlin</a></li>
+        <li><a href="#">Leipzig</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>© 2025 SC34 Landschaftsarchitektur. Alle Rechte vorbehalten.</span>
+    <span class="footer-legal">
+      <a href="#">Datenschutz</a>
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </span>
+  </div>
+</footer>
+
+  <!-- script.js steuert das mobile Hamburger-Menü.
+       Liegt ganz am Ende, damit das HTML schon geladen ist,
+       bevor das Skript danach sucht. -->
+  <script src="script.js"></script>
+</body>
+</html>

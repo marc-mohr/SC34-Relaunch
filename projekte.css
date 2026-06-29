@@ -1,0 +1,257 @@
+/* =========================================================
+   SC34 — projekte.css
+   Stile NUR für die Projektübersichtsseite (projekte.html).
+
+   Setzt style.css voraus — Variablen, Reset, Header, Footer,
+   Buttons, .img-placeholder, .tag-row, .eyebrow sind dort
+   bereits definiert.
+
+   AUFBAU:
+   1. Aktiver Navlink         — Unterstrichen im Menü
+   2. Seiten-Hero             — Schmaler Titelbereich
+   3. Filterleiste            — Kategorie-Buttons
+   4. Projektgitter           — 2-spaltiges Kachelraster
+   5. Projekt-Kachel          — Aufbau einer einzelnen Kachel
+   6. Keine-Ergebnisse        — Meldung bei leerem Filter
+   7. Responsive
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. AKTIVER NAVLINK
+   Der aktive Menüpunkt (die aktuelle Seite) bekommt eine
+   Unterstreichung, damit der Nutzer weiß wo er ist.
+   Die Klasse .active wird direkt im HTML gesetzt.
+   --------------------------------------------------------- */
+.main-nav a.active {
+  border-bottom: 2px solid var(--black);
+  padding-bottom: 2px;
+}
+
+
+/* ---------------------------------------------------------
+   2. SEITEN-HERO
+   Bewusst schmal — nur Titel + Einleitung, kein Bild.
+   Gibt der Seite einen sauberen Einstieg ohne Ablenkung.
+   --------------------------------------------------------- */
+.projekte-hero {
+  padding-top: 64px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+/* Breadcrumb in der hellen Variante (dunkler Text auf weißem Grund,
+   im Gegensatz zur weißen Variante auf dem dunklen Hero in projekt.css) */
+.breadcrumb-light {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-bottom: 16px;
+}
+.breadcrumb-light a { color: var(--gray-500); }
+.breadcrumb-light a:hover { color: var(--black); }
+
+.projekte-hero h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  margin-bottom: 16px;
+}
+
+.projekte-hero p {
+  font-size: 17px;
+  max-width: 600px;
+  color: var(--gray-700);
+}
+
+
+/* ---------------------------------------------------------
+   3. FILTERLEISTE
+   Horizontale Reihe von Buttons.
+   Der aktive Button (.active) ist dunkel ausgefüllt,
+   inaktive Buttons sind umrandet (outline).
+   --------------------------------------------------------- */
+.projekte-filter-section {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--gray-200);
+  position: sticky;    /* bleibt beim Scrollen oben sichtbar */
+  top: 61px;           /* direkt unter dem sticky Header */
+  background: var(--white);
+  z-index: 90;
+}
+
+.filter-leiste {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;     /* auf Mobile umbrechen statt überlaufen */
+}
+
+/* Alle Filter-Buttons teilen diese Basis-Stile */
+.filter-btn {
+  padding: 10px 22px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.filter-btn:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+/* Aktiver Button: dunkel ausgefüllt */
+.filter-btn.active {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
+
+/* ---------------------------------------------------------
+   4. PROJEKTGITTER
+   2 Spalten auf Desktop — mehr Luft pro Kachel als 3 Spalten,
+   besser geeignet wenn viele Projekte auf einmal sichtbar sind.
+   --------------------------------------------------------- */
+.projekte-liste {
+  padding-top: 48px;
+  padding-bottom: var(--section-padding);
+}
+
+.projekte-zaehler {
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-bottom: 28px;
+}
+
+.projekte-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+
+
+/* ---------------------------------------------------------
+   5. PROJEKT-KACHEL
+   Aufbau: Bild oben (mit Badge-Overlay) + Inhalt unten.
+   Die gesamte Kachel ist ein <article> mit einem <a> darin —
+   so ist die ganze Fläche klickbar ohne Barrierefreiheit
+   zu verletzen (ein Link pro Kachel).
+   --------------------------------------------------------- */
+.projekt-kachel {
+  /* hidden-Attribut wird per JavaScript gesetzt beim Filtern.
+     [hidden] ist standardmäßig display:none im Browser. */
+}
+
+/* Der Link übernimmt den gesamten Kachel-Bereich */
+.kachel-link {
+  display: block;
+  color: inherit;      /* Link-Farbe nicht blau, sondern wie normaler Text */
+}
+
+/* Hover-Effekt: das Bild wächst leicht (zoom),
+   der Overflow: hidden in .kachel-bild schneidet es sauber ab */
+.kachel-link:hover .kachel-bild-inner {
+  transform: scale(1.03);
+}
+
+/* Bild-Container: position: relative für das Badge-Overlay */
+.kachel-bild {
+  aspect-ratio: 3/2;
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;    /* Zoom-Effekt bei Hover wird hier abgeschnitten */
+}
+
+/* Kategorie-Badge oben links auf dem Bild */
+.kachel-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--white);
+  padding: 6px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  color: var(--black);
+  z-index: 1;          /* über dem Bild, unter nichts anderem */
+}
+
+/* Inhaltsbereich unter dem Bild */
+.kachel-inhalt {
+  padding: 0 4px;      /* minimales seitliches Padding für optische Luft */
+}
+
+/* Standort-Zeile über dem Titel */
+.kachel-ort {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+}
+
+/* Projekttitel: H2 statt H3, weil es das wichtigste Element
+   der Kachel ist und auf dieser Seite keine H1 in der Kachel
+   sein sollte (die H1 ist der Seitentitel "Unsere Projekte") */
+.kachel-titel {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.kachel-beschreibung {
+  font-size: 14.5px;
+  color: var(--gray-700);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+/* Tags und Link-Pfeil kommen aus style.css (.tag-row, .tag,
+   .link-arrow) — keine eigenen Stile nötig */
+
+
+/* ---------------------------------------------------------
+   6. KEINE ERGEBNISSE
+   Wird eingeblendet wenn ein Filter 0 Kacheln anzeigt.
+   --------------------------------------------------------- */
+.keine-ergebnisse {
+  text-align: center;
+  padding: 64px 0;
+  color: var(--gray-500);
+  font-size: 16px;
+  grid-column: 1 / -1;   /* falls es im Grid steht, volle Breite */
+}
+
+
+/* ---------------------------------------------------------
+   7. RESPONSIVE
+   --------------------------------------------------------- */
+@media (max-width: 860px) {
+
+  /* Filterleiste klebt unter dem Header — auf Mobile ist der
+     Header selbst etwas höher, deswegen top anpassen */
+  .projekte-filter-section { top: 57px; }
+
+  /* 2 Spalten bleiben auch auf Tablet noch gut lesbar */
+  .projekte-grid { gap: 24px; }
+}
+
+@media (max-width: 600px) {
+
+  /* Auf sehr kleinen Screens: 1 Spalte */
+  .projekte-grid { grid-template-columns: 1fr; }
+
+  /* Filterleiste: nicht mehr sticky auf Mobile,
+     weil sie sonst zu viel Platz wegnimmt */
+  .projekte-filter-section {
+    position: static;
+  }
+}

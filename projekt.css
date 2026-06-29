@@ -1,0 +1,330 @@
+/* =========================================================
+   SC34 — projekt.css
+   Stile NUR für die Projektdetailseite (projekt.html).
+
+   WICHTIG: Diese Datei setzt style.css voraus — dort sind
+   bereits definiert: Variablen, Reset, Header, Footer,
+   Buttons, .img-placeholder, .tag-row, .eyebrow etc.
+   Hier steht nur, was NEU für die Projektseite dazukommt.
+
+   AUFBAU:
+   1. Projekt-Hero        — Vollbreite-Bild + Titel-Overlay
+   2. Projekt-Meta        — Eckdaten-Zeile
+   3. Projekt-Content     — Text + Galerie nebeneinander
+   4. Nächstes Projekt    — Kachel am Seitenende
+   5. Responsive
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. PROJEKT-HERO
+   Das erste große Bild nimmt die volle Seitenbreite ein.
+   Der Titel liegt als Overlay unten auf dem Bild.
+   --------------------------------------------------------- */
+.projekt-hero {
+  /* kein section-padding hier — der Hero soll direkt unter
+     dem Header starten, ohne Leerraum oben */
+  padding: 0;
+  position: relative; /* Bezugspunkt für den Text-Overlay unten */
+}
+
+/* Das Bild selbst: Vollbreite, feste Höhe per aspect-ratio */
+.projekt-hero-image {
+  width: 100%;
+  aspect-ratio: 16/7;    /* breites Querformat, typisch für Hero-Bilder */
+  border-radius: 0;      /* kein Radius — läuft bis an den Rand */
+}
+
+/* Der Container mit dem Titel liegt ÜBER dem Bild.
+   position: absolute hebt ihn aus dem normalen Seitenfluss,
+   bottom: 0 klebt ihn ans untere Ende des Hero-Bereichs. */
+.projekt-hero-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* Gradient von unten: macht den Text lesbar vor dem Foto */
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
+  padding: 48px 24px 36px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+/* Damit .projekt-hero-text sich auf den Hero bezieht
+   (und nicht auf den gesamten Viewport), braucht
+   .projekt-hero "position: relative" — das steht oben. */
+
+.projekt-hero h1 {
+  color: var(--white);
+  margin: 10px 0 16px;
+  font-size: clamp(28px, 3.6vw, 46px);
+}
+
+/* Tags auf dem Hero-Bild: weißer Hintergrund mit Transparenz */
+.projekt-hero .tag-row { margin-top: 0; }
+.projekt-hero .tag {
+  background: rgba(255,255,255,0.92);
+  border-color: transparent;
+}
+
+/* Breadcrumb: kleine Navigation oben im Hero-Overlay.
+   Zeigt dem Nutzer: Home › Projekte › Projektname */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+}
+.breadcrumb a { color: rgba(255,255,255,0.75); }
+.breadcrumb a:hover { color: var(--white); }
+.breadcrumb span { color: rgba(255,255,255,0.5); }
+
+
+/* ---------------------------------------------------------
+   2. PROJEKT-META
+   Schmale Zeile mit Eckdaten: Standort, Leistung, Status...
+   Hellgrauer Hintergrund trennt sie visuell vom Hero und
+   vom Inhalt darunter.
+   --------------------------------------------------------- */
+.projekt-meta-section {
+  padding-top: 0;           /* kein Abstand oben — klebt am Hero */
+  padding-bottom: 0;
+  background: var(--gray-100);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+/* Flex-Layout: alle Meta-Items in einer Zeile, gleichmäßig verteilt */
+.projekt-meta-grid {
+  display: flex;
+  gap: 0;
+  padding: 28px 0;
+}
+
+.meta-item {
+  flex: 1;                  /* alle Items gleich breit */
+  padding: 0 24px;
+  border-left: 1px solid var(--gray-200); /* Trennlinie zwischen Items */
+}
+.meta-item:first-child {
+  border-left: none;        /* erstes Item ohne linke Linie */
+  padding-left: 0;
+}
+
+.meta-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 5px;
+}
+
+.meta-value {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--black);
+}
+
+
+/* ---------------------------------------------------------
+   3. PROJEKT-CONTENT
+   Zweispaltiges Layout: Text links, Bildergalerie rechts.
+   --------------------------------------------------------- */
+.projekt-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;  /* rechte Spalte (Galerie) etwas breiter */
+  gap: 72px;
+  align-items: start;    /* beide Spalten starten oben, strecken sich nicht */
+}
+
+/* --- Linke Spalte: Text --- */
+.projekt-text h2 {
+  margin: 10px 0 20px;
+}
+
+/* Abstand zwischen den Textabsätzen */
+.projekt-text p + p {
+  margin-top: 16px;
+}
+
+/* Leistungsblock: strukturierte Liste der erbrachten Leistungen */
+.projekt-leistungen {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.projekt-leistungen h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.leistungen-liste {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Jeder Listenpunkt bekommt einen grünen Haken-ähnlichen
+   Strich als visuelles Marker-Element */
+.leistungen-liste li {
+  font-size: 14.5px;
+  color: var(--gray-700);
+  padding-left: 18px;
+  position: relative;
+}
+.leistungen-liste li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gray-400);
+}
+
+/* --- Rechte Spalte: Galerie --- */
+
+/* Das Galerie-Raster:
+   .galerie-gross nimmt die volle Breite (beide Spalten),
+   danach kommen die kleineren Bilder in 2 Spalten. */
+.galerie-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.galerie-bild {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+}
+
+/* Erstes Bild: volle Breite über beide Spalten
+   grid-column: 1 / -1 bedeutet "von Spalte 1 bis zur letzten" */
+.galerie-bild.galerie-gross {
+  grid-column: 1 / -1;  /* volle Breite des Galerie-Rasters */
+  aspect-ratio: 16/9;   /* breiteres Format für das Hauptbild */
+}
+
+
+/* ---------------------------------------------------------
+   4. NÄCHSTES PROJEKT
+   Kachel am Seitenende mit Vorschaubild + Projektinfos.
+   Lädt zum Weiterstöbern ein und verlinkt intern.
+   --------------------------------------------------------- */
+.projekt-next {
+  background: var(--gray-100);
+  border-top: 1px solid var(--gray-200);
+}
+
+/* Die Kachel selbst ist ein <a>-Tag, damit der gesamte
+   Bereich klickbar ist (nicht nur der Link-Text) */
+.next-card {
+  display: block;
+  margin-top: 28px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  background: var(--white);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+.next-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Innen: Bild links, Text rechts */
+.next-card-inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  align-items: center;
+}
+
+.next-bild {
+  aspect-ratio: 4/3;
+  border-radius: 0;      /* kein Radius — sitzt am Kartenrand */
+  height: 100%;          /* füllt die volle Höhe der Karte */
+}
+
+.next-text {
+  padding: 32px 36px;
+}
+
+.next-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 10px;
+}
+
+.next-text h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.next-text p {
+  font-size: 14.5px;
+  margin-bottom: 16px;
+}
+
+/* "Alle Projekte"-Button: zentriert unter der Kachel */
+.back-link {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* ---------------------------------------------------------
+   5. RESPONSIVE
+   --------------------------------------------------------- */
+@media (max-width: 860px) {
+
+  /* Hero: Bild wird höher auf Mobile, damit es nicht zu
+     flach wirkt wenn die Breite schmaler ist */
+  .projekt-hero-image { aspect-ratio: 4/3; }
+
+  /* Meta-Zeile: auf Mobile untereinander statt nebeneinander */
+  .projekt-meta-grid {
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+  }
+  .meta-item {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--gray-200);
+    padding-top: 14px;
+  }
+  .meta-item:first-child { border-top: none; padding-top: 0; }
+
+  /* Content: Spalten untereinander statt nebeneinander */
+  .projekt-content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Galerie auf Mobile: Hauptbild + 2er-Grid bleibt,
+     aber enger zusammengerückt */
+  .galerie-grid { gap: 8px; }
+
+  /* Nächstes Projekt: Bild oben, Text unten */
+  .next-card-inner {
+    grid-template-columns: 1fr;
+  }
+  .next-bild {
+    aspect-ratio: 16/9;
+    height: auto;
+  }
+  .next-text { padding: 24px; }
+}
+
+@media (max-width: 480px) {
+  /* Auf sehr kleinen Screens: Galerie einspaltig */
+  .galerie-grid { grid-template-columns: 1fr; }
+  .galerie-bild.galerie-gross { grid-column: 1; }
+}

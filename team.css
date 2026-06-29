@@ -1,0 +1,261 @@
+/* =========================================================
+   SC34 — team.css
+   Stile NUR für die Team-Seite (team.html).
+
+   Setzt style.css voraus — Variablen, Reset, Header, Footer,
+   Buttons, .img-placeholder, .eyebrow, .contact-cta etc.
+   sind dort bereits definiert.
+
+   AUFBAU:
+   1. Aktiver Navlink
+   2. Team-Hero
+   3. Büro-Philosophie
+   4. Schwerpunkte
+   5. Team-Mitglieder
+   6. Mitgliedschaften
+   7. Responsive
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. AKTIVER NAVLINK
+   --------------------------------------------------------- */
+.main-nav a.active {
+  border-bottom: 2px solid var(--black);
+  padding-bottom: 2px;
+}
+
+
+/* ---------------------------------------------------------
+   2. TEAM-HERO
+   Schmal und klar — nur Titel + Einleitung.
+   Gleiche Struktur wie auf der Projektübersichtsseite,
+   damit alle Unterseiten konsistent wirken.
+   --------------------------------------------------------- */
+.team-hero {
+  padding-top: 64px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+/* .breadcrumb-light ist bereits in projekte.css definiert.
+   Falls team.css ohne projekte.css geladen wird, hier nochmal: */
+.breadcrumb-light {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-bottom: 16px;
+}
+.breadcrumb-light a { color: var(--gray-500); }
+.breadcrumb-light a:hover { color: var(--black); }
+
+.team-hero h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  margin-bottom: 16px;
+}
+
+.team-hero p {
+  font-size: 17px;
+  max-width: 620px;
+  color: var(--gray-700);
+}
+
+
+/* ---------------------------------------------------------
+   3. BÜRO-PHILOSOPHIE
+   Zweispaltig: Text links, Bild rechts.
+   Büro im Vordergrund, nicht einzelne Personen.
+   --------------------------------------------------------- */
+.team-philosophie-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.philosophie-text h2 {
+  margin: 10px 0 22px;
+}
+
+/* Abstand zwischen den Textabsätzen */
+.philosophie-text p + p {
+  margin-top: 14px;
+}
+
+.philosophie-bild {
+  aspect-ratio: 4/5;   /* Hochformat — wirkt ruhiger als Querformat */
+  border-radius: var(--radius);
+}
+
+
+/* ---------------------------------------------------------
+   4. SCHWERPUNKTE
+   4er-Grid mit Nummer, Titel und Beschreibung.
+   Gleiche Struktur wie die Leistungen auf der Startseite,
+   aber mit Nummerierung statt Icons.
+   --------------------------------------------------------- */
+.schwerpunkte-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+
+.schwerpunkt-item {
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-200);
+}
+
+/* Nummer oben links — dezent, als visuelle Orientierung */
+.schwerpunkt-nr {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-400, #b0b0b0);
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+
+.schwerpunkt-item h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.schwerpunkt-item p {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.55;
+}
+
+
+/* ---------------------------------------------------------
+   5. TEAM-MITGLIEDER
+   Kompakte Listendarstellung mit kleinen Avataren.
+   Bewusst dezent — das Büro, nicht die Personen stehen
+   im Vordergrund (Wunsch des Inhabers).
+   --------------------------------------------------------- */
+
+/* 2-spaltiges Grid — kompakter als 3 Spalten mit großen Fotos */
+.mitglieder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;             /* minimaler Abstand — Zeilen wirken wie eine Liste */
+}
+
+/* Jede Person: Avatar links, Name + Rolle rechts */
+.mitglied {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+/* Letztes Element in jeder Spalte: keine untere Linie */
+.mitglied:last-child { border-bottom: none; }
+
+/* Avatar: kleiner Kreis mit Initialen — dezent und einheitlich.
+   Falls ein echtes Foto verwendet wird, einfach als
+   background-image setzen oder ein <img> innerhalb platzieren. */
+.mitglied-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;   /* runder Avatar */
+  flex-shrink: 0;       /* verhindert, dass der Avatar kleiner wird
+                            wenn der Name lang ist */
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-600, #5a5a5a);
+}
+
+.mitglied-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 3px;
+}
+
+.mitglied-rolle {
+  font-size: 13.5px;
+  color: var(--gray-500);
+}
+
+
+/* ---------------------------------------------------------
+   6. MITGLIEDSCHAFTEN
+   DGNB + bdla als eigene Sektion statt im Footer versteckt.
+   Qualitätssignale die Vertrauen schaffen.
+   --------------------------------------------------------- */
+.team-mitgliedschaften {
+  background: var(--gray-100);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+/* 2 Karten nebeneinander, zentriert */
+.mitgliedschaften-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.mitgliedschaft-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  text-align: center;
+}
+
+/* Logo-Platzhalter: quadratisch, zentriert */
+.mitgliedschaft-logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: var(--radius);
+  font-size: 11px;
+}
+
+.mitgliedschaft-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.mitgliedschaft-card p {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.55;
+}
+
+
+/* ---------------------------------------------------------
+   7. RESPONSIVE
+   --------------------------------------------------------- */
+@media (max-width: 860px) {
+
+  /* Philosophie: Bild unter dem Text auf Tablet/Mobile */
+  .team-philosophie-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  /* Bild kommt nach dem Text, also wird die Reihenfolge
+     im HTML beibehalten (Text zuerst, Bild danach) */
+  .philosophie-bild { aspect-ratio: 3/2; }
+
+  /* Schwerpunkte: 2 Spalten statt 4 */
+  .schwerpunkte-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Mitglieder: 1 Spalte auf Tablet */
+  .mitglieder-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+
+  /* Schwerpunkte: 1 Spalte auf sehr kleinen Screens */
+  .schwerpunkte-grid { grid-template-columns: 1fr; }
+
+  /* Mitgliedschaften: untereinander */
+  .mitgliedschaften-grid { grid-template-columns: 1fr; }
+}

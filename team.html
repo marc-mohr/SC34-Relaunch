@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team — SC34 Landschaftsarchitektur</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="team.css">
+</head>
+<body>
+
+<!-- =========================================================
+     AUFBAU DIESER SEITE:
+     1. <header>              — identisch zur index.html
+     2. <main>
+        - .team-hero          Seitentitel + Einleitung
+        - .team-philosophie   Büro-Text links, Bild rechts
+        - .team-schwerpunkte  4 Leistungsfelder als Grid
+        - .team-mitglieder    Kompakte Personenliste
+        - .team-mitgliedschaften  DGNB + bdla als Qualitätssignal
+        - .team-cta           Kontakt-Aufruf
+     3. <footer>              — identisch zur index.html
+     ========================================================= -->
+
+<!-- HEADER: identisch zur index.html -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Logo</a>
+    <nav class="main-nav">
+      <a href="index.html">Startseite</a>
+      <a href="projekte.html">Projekte</a>
+      <a href="team.html" class="active">Team</a>
+      <a href="#">Kontakt</a>
+    </nav>
+    <a href="#" class="btn btn-dark">Kontakt</a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- SEITEN-HERO
+       Schmal und klar — kein großes Bild, nur Titel und
+       ein einladender Einleitungssatz. -->
+  <section class="team-hero">
+    <div class="container">
+      <nav class="breadcrumb-light" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Team</span>
+      </nav>
+      <h1>Menschen hinter den Projekten</h1>
+      <p>Wir sind ein interdisziplinäres Team aus Landschaftsarchitekten, Planern und Gestaltern — verbunden durch den Anspruch, Freiräume zu schaffen, die Bestand haben.</p>
+    </div>
+  </section>
+
+  <!-- BÜRO-PHILOSOPHIE
+       Zweispaltiges Layout: Text links, Bild rechts.
+       Das Büro steht im Mittelpunkt — nicht einzelne Personen. -->
+  <section class="team-philosophie">
+    <div class="container team-philosophie-grid">
+
+      <div class="philosophie-text">
+        <span class="eyebrow">Über SC34</span>
+        <h2>Planung mit Haltung.</h2>
+        <p>Wir sind kein reines Zeichenbüro. Das Fundament unseres Erfolgs liegt in der Kombination aus akademischer Planungsstärke und handwerklichen Grundausbildungen.</p>
+        <p>Weil wir wissen, wie Materialien verarbeitet werden und wie Baustellen logistisch funktionieren, planen wir von vornherein fehlerfrei und praxisnah.</p>
+        <p>Diese Bodenhaftung macht uns zu einem gefragten Partner für die bundesweite Betreuung von anspruchsvollen Großprojekten. Wir sprechen die Sprache der Planer und die Sprache der Gewerke vor Ort.</p>
+      </div>
+
+      <div class="img-placeholder philosophie-bild">
+        <span>Büro- oder Teamfoto</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SCHWERPUNKTE
+       Die 4 Leistungsfelder als kompaktes Grid.
+       Zeigt was das Büro kann — losgelöst von Personen. -->
+  <section class="team-schwerpunkte">
+    <div class="container">
+      <div class="section-intro">
+        <span class="eyebrow">Schwerpunkte</span>
+        <h2>Was uns ausmacht</h2>
+      </div>
+
+      <div class="schwerpunkte-grid">
+        <div class="schwerpunkt-item">
+          <div class="schwerpunkt-nr">01</div>
+          <h3>Freiraumplanung</h3>
+          <p>Gestaltung von Parkanlagen, Gärten und öffentlichen Plätzen mit langfristiger Funktion und klarer Handschrift.</p>
+        </div>
+        <div class="schwerpunkt-item">
+          <div class="schwerpunkt-nr">02</div>
+          <h3>Stadtentwicklung</h3>
+          <p>Integrierte Konzepte für urbane Grünflächen und blau-grüne Infrastrukturen, die Gemeinschaft und Klimaresilienz verbinden.</p>
+        </div>
+        <div class="schwerpunkt-item">
+          <div class="schwerpunkt-nr">03</div>
+          <h3>Umweltschutz</h3>
+          <p>Naturnahe Gestaltung unter Berücksichtigung der Biodiversität, Baumkataster und ökologischer Ausgleichsmaßnahmen.</p>
+        </div>
+        <div class="schwerpunkt-item">
+          <div class="schwerpunkt-nr">04</div>
+          <h3>Nachhaltigkeit</h3>
+          <p>Einsatz ressourcenschonender Materialien und Techniken — von der ersten Skizze bis zur Fertigstellung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM-MITGLIEDER
+       Kompakte Listendarstellung — dezente Portraits,
+       kein dominantes Bildformat. Wer kein Foto hat,
+       bekommt einen Initialen-Avatar. -->
+  <section class="team-mitglieder">
+    <div class="container">
+      <div class="section-intro">
+        <span class="eyebrow">Das Team</span>
+        <h2>Wer wir sind</h2>
+        <p>Sieben Personen an drei Standorten — gemeinsam verantwortlich für Entwurf, Planung und Realisierung.</p>
+      </div>
+
+      <div class="mitglieder-grid">
+
+        <!-- Markus J.H. Schaefers — Inhaber, bekommt etwas
+             mehr Gewicht durch die Rolle "Inhaber", aber
+             kein größeres Bild als die anderen -->
+        <div class="mitglied">
+          <div class="mitglied-avatar img-placeholder">
+            <span>MS</span>
+          </div>
+          <div class="mitglied-info">
+            <div class="mitglied-name">Markus J.H. Schaefers</div>
+            <div class="mitglied-rolle">Inhaber · Dipl.-Ing. Landschaftsarchitektur</div>
+          </div>
+        </div>
+
+        <div class="mitglied">
+          <div class="mitglied-avatar img-placeholder">
+            <span>BE</span>
+          </div>
+          <div class="mitglied-info">
+            <div class="mitglied-name">Barbara Erckmann</div>
+            <div class="mitglied-rolle">Landschaftsarchitektur</div>
+          </div>
+        </div>
+
+        <div class="mitglied">
+          <div class="mitglied-avatar img-placeholder">
+            <span>JJ</span>
+          </div>
+          <div class="mitglied-info">
+            <div class="mitglied-name">Josefine Junge</div>
+            <div class="mitglied-rolle">Landschaftsarchitektur</div>
+          </div>
+        </div>
+
+        <div class="mitglied">
+          <div class="mitglied-avatar img-placeholder">
+            <span>JP</span>
+          </div>
+          <div class="mitglied-info">
+            <div class="mitglied-name">Janina Plutz</div>
+            <div class="mitglied-rolle">Landschaftsarchitektur</div>
+          </div>
+        </div>
+
+        <div class="mitglied">
+          <!-- Carola Wilkens hat ein Foto auf der alten Seite -->
+          <div class="mitglied-avatar img-placeholder">
+            <span>CW</span>
+          </div>
+          <div class="mitglied-info">
+            <div class="mitglied-name">Carola Wilkens</div>
+            <div class="mitglied-rolle">GrafikDesign</div>
+          </div>
+        </div>
+
+        <div class="mitglied">
+          <div class="mitglied-avatar img-placeholder">
+            <span>SM</span>
+          </div>
+          <div class="mitglied-info">
+            <div class="mitglied-name">Sanjay Mamveettil</div>
+            <div class="mitglied-rolle">Landschaftsarchitektur</div>
+          </div>
+        </div>
+
+        <div class="mitglied">
+          <div class="mitglied-avatar img-placeholder">
+            <span>LS</span>
+          </div>
+          <div class="mitglied-info">
+            <div class="mitglied-name">Linus Schmitz</div>
+            <div class="mitglied-rolle">Landschaftsarchitektur</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MITGLIEDSCHAFTEN
+       DGNB und bdla als eigene Sektion — sauber hervorgehoben
+       statt im Footer versteckt. Das sind Qualitätssignale
+       die Vertrauen schaffen und sichtbar sein sollten. -->
+  <section class="team-mitgliedschaften">
+    <div class="container">
+      <div class="section-intro center">
+        <span class="eyebrow">Mitgliedschaften</span>
+        <h2>Qualität, die zertifiziert ist</h2>
+        <p>SC34 ist Mitglied in den wichtigsten Berufs- und Nachhaltigkeitsverbänden der Branche.</p>
+      </div>
+
+      <div class="mitgliedschaften-grid">
+
+        <div class="mitgliedschaft-card">
+          <!-- Logo-Platzhalter: hier kommt das echte DGNB-Logo rein -->
+          <div class="img-placeholder mitgliedschaft-logo">
+            <span>DGNB Logo</span>
+          </div>
+          <h3>DGNB</h3>
+          <p>Deutsche Gesellschaft für Nachhaltiges Bauen — Mitglied und zertifizierter Partner für nachhaltige Planung.</p>
+        </div>
+
+        <div class="mitgliedschaft-card">
+          <div class="img-placeholder mitgliedschaft-logo">
+            <span>bdla Logo</span>
+          </div>
+          <h3>bdla</h3>
+          <p>Bund Deutscher Landschaftsarchitekt:innen — Mitglied im führenden Berufsverband für Landschaftsarchitektur in Deutschland.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT-CTA -->
+  <section class="contact-cta">
+    <div class="container center">
+      <h2>Sprechen Sie uns an.</h2>
+      <p>Wir freuen uns über Anfragen zu neuen Projekten, Wettbewerben und Kooperationen.</p>
+      <div class="btn-row center">
+        <a href="#" class="btn btn-dark">Kontakt aufnehmen</a>
+        <a href="projekte.html" class="btn btn-outline">Unsere Projekte</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER: identisch zur index.html -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Logo</div>
+      <p>Adresse</p>
+      <p>Trottstraße 10<br>34119 Kassel, Deutschland</p>
+      <p>Kontakt</p>
+      <p>info@sc34.de</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="projekte.html">Projekte</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Standorte:</h4>
+      <ul>
+        <li><a href="#">Kassel</a></li>
+        <li><a href="#">Berlin</a></li>
+        <li><a href="#">Leipzig</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2025 SC34 Landschaftsarchitektur. Alle Rechte vorbehalten.</span>
+    <span class="footer-legal">
+      <a href="#">Datenschutz</a>
+      <a href="#">Impressum</a>
+    </span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

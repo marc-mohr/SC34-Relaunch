@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt — SC34 Landschaftsarchitektur</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="kontakt.css">
+</head>
+<body>
+
+<!-- =========================================================
+     AUFBAU DIESER SEITE:
+     1. <header>           — identisch zur index.html
+     2. <main>
+        - .kontakt-hero    Seitentitel + Einleitung
+        - .kontakt-main    Formular links, Ansprechpartner rechts
+     3. <footer>           — identisch zur index.html
+     ========================================================= -->
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Logo</a>
+    <nav class="main-nav">
+      <a href="index.html">Startseite</a>
+      <a href="projekte.html">Projekte</a>
+      <a href="team.html">Team</a>
+      <a href="kontakt.html" class="active">Kontakt</a>
+    </nav>
+    <a href="kontakt.html" class="btn btn-dark">Kontakt</a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- SEITEN-HERO -->
+  <section class="kontakt-hero">
+    <div class="container">
+      <nav class="breadcrumb-light" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Kontakt</span>
+      </nav>
+      <h1>Lassen Sie uns sprechen.</h1>
+      <p>Ob neues Projekt, Wettbewerb oder einfach eine erste Frage — wir freuen uns auf Ihre Nachricht.</p>
+    </div>
+  </section>
+
+  <!-- HAUPTBEREICH
+       Zweispaltiges Layout:
+       Links  — Kontaktformular
+       Rechts — Ansprechpartner + Projektgebiete -->
+  <section class="kontakt-main">
+    <div class="container kontakt-grid">
+
+      <!-- LINKE SPALTE: Kontaktformular
+           Das Formular hat action="#" als Platzhalter.
+           Für den echten Versand muss später entweder ein
+           PHP-Skript, ein Dienst wie Formspree oder ein
+           WordPress-Plugin (z.B. Contact Form 7) eingebunden werden. -->
+      <div class="kontakt-formular">
+        <h2>Schreiben Sie uns</h2>
+        <p>Wir melden uns in der Regel innerhalb von 1–2 Werktagen bei Ihnen.</p>
+
+        <form class="formular" action="#" method="post" novalidate>
+
+          <!-- Name -->
+          <div class="form-group">
+            <label for="name">Name <span class="pflicht">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Ihr vollständiger Name" required>
+          </div>
+
+          <!-- E-Mail -->
+          <div class="form-group">
+            <label for="email">E-Mail <span class="pflicht">*</span></label>
+            <input type="email" id="email" name="email" placeholder="ihre@email.de" required>
+          </div>
+
+          <!-- Betreff -->
+          <div class="form-group">
+            <label for="betreff">Betreff</label>
+            <select id="betreff" name="betreff">
+              <option value="" disabled selected>Bitte wählen</option>
+              <option value="projekt">Neues Projekt</option>
+              <option value="wettbewerb">Wettbewerb</option>
+              <option value="kooperation">Kooperation</option>
+              <option value="sonstiges">Sonstiges</option>
+            </select>
+          </div>
+
+          <!-- Nachricht -->
+          <div class="form-group">
+            <label for="nachricht">Nachricht <span class="pflicht">*</span></label>
+            <textarea id="nachricht" name="nachricht" rows="6" placeholder="Beschreiben Sie kurz Ihr Anliegen oder Projekt..." required></textarea>
+          </div>
+
+          <!-- Datenschutz-Checkbox
+               Pflicht für DSGVO-konformes Kontaktformular -->
+          <div class="form-group form-check">
+            <input type="checkbox" id="datenschutz" name="datenschutz" required>
+            <label for="datenschutz">
+              Ich habe die <a href="#">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu. <span class="pflicht">*</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-dark btn-submit">Nachricht absenden</button>
+
+          <!-- Pflichtfelder-Hinweis -->
+          <p class="pflicht-hinweis"><span class="pflicht">*</span> Pflichtfelder</p>
+
+        </form>
+      </div>
+
+      <!-- RECHTE SPALTE: Ansprechpartner + Projektgebiete -->
+      <div class="kontakt-info">
+
+        <!-- Ansprechpartner -->
+        <div class="ansprechpartner">
+          <span class="eyebrow">Ihr Ansprechpartner</span>
+
+          <div class="ap-card">
+            <!-- Kleiner Avatar — dezent, wie auf der Team-Seite -->
+            <div class="img-placeholder ap-avatar"><span>MS</span></div>
+            <div class="ap-details">
+              <div class="ap-name">Markus J.H. Schaefers</div>
+              <div class="ap-rolle">Inhaber · Dipl.-Ing. Landschaftsarchitektur</div>
+            </div>
+          </div>
+
+          <!-- Kontaktdaten -->
+          <ul class="kontakt-daten">
+            <li>
+              <span class="kontakt-label">Telefon</span>
+              <a href="tel:+4956140094300" class="kontakt-wert">0561 400 943 00</a>
+            </li>
+            <li>
+              <span class="kontakt-label">E-Mail</span>
+              <a href="mailto:info@sc34.de" class="kontakt-wert">info@sc34.de</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Trennlinie -->
+        <hr class="info-divider">
+
+        <!-- Projektgebiete
+             Bewusst als "Projektgebiete" formuliert statt
+             "Standorte" — ehrlich, professionell, keine
+             aufgeblasenen Büroadressen. -->
+        <div class="projektgebiete">
+          <span class="eyebrow">Projektgebiete</span>
+          <p class="projektgebiete-claim">Wir sind dort, wo unsere Projekte sind.</p>
+          <div class="gebiete-liste">
+            <div class="gebiet">
+              <span class="gebiet-name">Kassel</span>
+              <span class="gebiet-sub">Hessen &amp; Mitteldeutschland</span>
+            </div>
+            <div class="gebiet">
+              <span class="gebiet-name">Berlin</span>
+              <span class="gebiet-sub">Berlin &amp; Brandenburg</span>
+            </div>
+            <div class="gebiet">
+              <span class="gebiet-name">Leipzig</span>
+              <span class="gebiet-sub">Sachsen &amp; Sachsen-Anhalt</span>
+            </div>
+          </div>
+          <p class="projektgebiete-hinweis">Bundesweite Projektbetreuung auf Anfrage.</p>
+        </div>
+
+        <!-- Trennlinie -->
+        <hr class="info-divider">
+
+        <!-- Reaktionszeit / Erwartungsmanagement -->
+        <div class="reaktionszeit">
+          <span class="eyebrow">Reaktionszeit</span>
+          <p>Wir antworten in der Regel <strong>innerhalb von 1–2 Werktagen</strong>. Für dringende Anfragen erreichen Sie uns telefonisch.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Logo</div>
+      <p>Adresse</p>
+      <p>Trottstraße 10<br>34119 Kassel, Deutschland</p>
+      <p>Kontakt</p>
+      <p>info@sc34.de</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="projekte.html">Projekte</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Projektgebiete</h4>
+      <ul>
+        <li><a href="#">Kassel</a></li>
+        <li><a href="#">Berlin</a></li>
+        <li><a href="#">Leipzig</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2025 SC34 Landschaftsarchitektur. Alle Rechte vorbehalten.</span>
+    <span class="footer-legal">
+      <a href="#">Datenschutz</a>
+      <a href="#">Impressum</a>
+    </span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
